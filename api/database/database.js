@@ -11,11 +11,11 @@ PARÂMETROS DE CONEXÃO:
 
 */
 const connection = new sequelize(
-    'libri',
+    'libri_ds3m',
     'root',
     '12345678',
     {
-        'host': 'localhost:3306',
+        'host': 'localhost',
         'dialect': 'mysql',
     }
 );
