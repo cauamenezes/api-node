@@ -8,7 +8,7 @@ const connection = require('../database/database');
  * define - CRIA A REPRESENTAÇÃO DA TABELA.
  * PARÂMETROS:
  * 1 - NOME DA TABELA
- * 2 - OBJETO JSONOO QUE VAI CONTER OS CAMPOS DA TABELA, SEUS TIPOS E REGRAS.
+ * 2 - OBJETO JSON QUE VAI CONTER OS CAMPOS DA TABELA, SEUS TIPOS E REGRAS.
 **/
 const Usuario = connection.define(
     'tbl_usuario',
