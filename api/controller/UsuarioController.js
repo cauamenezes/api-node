@@ -24,7 +24,7 @@ router.post('/usuario/inserirUsuario', (req, res)=>{
         nome,
         sobrenome,
         email,
-        foto,
+        foto: 'TESTE DE FOTO',
         login,
         senha
     }).then(()=>{
