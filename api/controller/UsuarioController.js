@@ -1,35 +1,46 @@
+/* IMPORTA O MÓDULO DO express */
 const express = require('express');
-const usuarioModel = require('../model/Usuario');
 
-/* CRIA A INSTÂNCIA DE ROTAS */
+/* IMPORTA O MODEL DE CATEGORIA */
+const usuario = require('../model/Usuario');
+
+/* CONFIGURA A FUNCIONALIDA DE ROTAS  */
 const router = express.Router();
 
-/* CRIAR AS ROTAS */
-/* ROTA DE INSERÇÃO
+router.get('/usuario/logarUsuario/:login/:senha', (req, res)=>{
 
-o router é capaz de receber requisições de verbos HTTP.
+    const { login, senha } = req.params;
 
-Parâmetros:
-1 - Uma string representando a rota;
-2 - Um callback que trata a requisição (req) e a resposta (res).
-*/
+    usuario.findAll({
+        where:{
+            login,
+            senha
+        }
+    })
+    .then(
+            (usuario)=>{
+                res.status(200).json(usuario);
+            }       
+    );
 
-router.post('/usuario/inserirUsuario', (req, res)=>{
+});
 
-    // console.log(req.body);
+router.post('/usuario/cadastrarUsuario', (req, res)=>{
 
     const {nome, sobrenome, email, foto, login, senha} = req.body;
 
-    usuarioModel.create({
-        nome,
+    usuario.create({
+        nome, 
         sobrenome,
         email,
-        foto: 'TESTE DE FOTO',
+        foto,
         login,
         senha
-    }).then(()=>{
-        res.status(200).json({'msg': 'Usuário inserido com sucesso!'});
-    });
+    }).then(
+        ()=>{
+            res.status(200).json({"MSG": "USUÁRIO INSERIDO COM SUCESSO!"});
+        }
+    );
 
 });
 

@@ -1,25 +1,27 @@
 {
-  "name": "api",
+  "name": "api-libri",
   "version": "1.0.0",
-  "description": "API Rest para consumo de dados de um banco de dados MySQL.",
+  "description": "\"API DE EMXMPLO PARA AULA DE DESENVOLVIMENTO ANDROID. ACESSADO, CONSUMINDO E MANIPULANDO DADOS DE API COM USO DO RETROFIT\"",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
   "keywords": [
+    "ANDROID",
+    "RETROFIT",
+    "NODEJS",
     "API",
-    "MySQL",
-    "SENAI",
-    "Jandira",
-    "Android"
+    "APIREST"
   ],
-  "author": "Cauã Menezes da Silva",
+  "author": "CRISTIANO CORREA DE MORAES",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15",
     "sequelize": "^6.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

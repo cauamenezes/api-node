@@ -1,33 +1,23 @@
-/* IMPORTA O PACOTE EXPRESS PARA A APLICAÇÃO */
+/* IMPORTAÇÕES DE PACOTES */
 const express = require('express');
 
-/* CRIA UMA INSTÂNCIA DO PACOTE EXPRESS PARA SER UTILIZADA NA APLICAÇÃO */
+/* INSTANCIAS DE PACOTES */
+//express:
 const app = express();
 
-/* IMPORTA A CONTROLLER DE USUÁRIO */
-const controllerUsuario = require('./controller/UsuarioController');
-
-/* CONFIGURAÇÕES DO EXPRESS PARA MANNIPULAR FORMATO JSON */
+/* CONFIGURA O EXPRESS PARA LIDAR COM DADOS NO FORMATO JSON */
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
-/* CONFIGURAÇÃO DA ROTA DE USUÁRIO
+/* IMPORTA E CONFIGURA OS ARQUIVOS DE ROTAS DE USUÁRIOS */
+const usuarioController = require('./controller/UsuarioController');
+app.use('/', usuarioController);
 
-Parâmetros:
-1 - A raiz das requisições que é representada por uma "/"
-2 - 
-*/
-app.use('/', controllerUsuario)
+/* IMPORTA E CONFIGURA OS ARQUIVOS DE ROTAS DE LIVROS*/
+const livroController = require('./controller/LivroController');
+app.use('/', livroController);
 
-/* IMPORTA O ARQUIVO DE CONEXÃO */
-// const connection = require('./database/database');
-
-/* IMPORTA O ARQUIVO DE MODEL DE USUÁRIO */
-// const usuario = require('./model/Usuario');
-
-/* INSTÂNCIA DO SERVIDOR (EXPRESS) */
-/* 3000 é o número da porta do servidor. A porta 3000 é padrão para desenvolvimento */
-app.listen(3000, ()=>{
-
-    console.log('SERVIDOR RODANDO EM http://localhost:3000');
+/* INSTANCIA DO SERVIDOR (express) */
+app.listen(3000, ()=>{ 
+    console.log('SERVIDOR RODANDO NA URL: http://localhost:3000'); 
 });
