@@ -33,7 +33,7 @@ router.post('/usuario/cadastrarUsuario', (req, res)=>{
         nome, 
         sobrenome,
         email,
-        foto,
+        foto: 'unknown.png',
         login,
         senha
     }).then(
